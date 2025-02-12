@@ -11,7 +11,7 @@ def main():
     letters_count = get_characters_count(text)
     if set_print_entire_book:
         print(text)
-    print(f"Word count: {word_count}\nLetters count\n{letters_count}")
+    print(f"Word count: {word_count}\nLetters count:\n{letters_count}")
     
 
 def get_words_count(book):

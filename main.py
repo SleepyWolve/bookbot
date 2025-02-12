@@ -1,12 +1,17 @@
 __name__ == '__main__'
 def main():
-    with open("books/frankenstein.txt") as f:
-        file_contents = f.read()
-        return file_contents
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+    word_count = get_count(text)
+    print(f"{text} \nword count: {word_count}")
+    
 
-def word_count(book):
+def get_count(book):
     words = book.split()
     return len(words)
 
-print(main())
-print(word_count(main()))
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
+main()

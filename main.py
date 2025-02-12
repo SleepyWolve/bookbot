@@ -2,6 +2,8 @@ import string
 
 #settings
 set_print_entire_book = False
+set_count_spaces = False
+set_pretty_output = True
 
 
 def main():
@@ -24,16 +26,19 @@ def get_book_text(path):
     
 def get_characters_count(text):
     letter_dict = {c: 0 for c in string.ascii_lowercase}
-    letter_dict[" "] = 0
+    if set_count_spaces:
+        letter_dict[" "] = 0
     lowercase = text.lower()
     for i in lowercase:
         if i in letter_dict:
             letter_dict[i] += 1
-            
-    return prettify(letter_dict)
+    if set_pretty_output:
+        return prettify(letter_dict)
+    else:
+        return letter_dict
+
 
 def prettify(dict):
-    del dict[" "]
     pretty_string = ""
     for letter in dict:
         pretty_string += f"the '{letter}' has found {dict[letter]} times\n"
